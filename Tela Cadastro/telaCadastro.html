@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Usuário - CTEC</title>
+    <link rel="stylesheet" href="telaCadastro.css">
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png" />
+</head>
+
+<body>
+    <div class="header">
+        <img src="../img/logobranco.png">
+        <h1>CTEC - Currículo Técnico Educacional</h1>
+    </div>
+
+    <div class="form-container">
+        <form id="cadastroForm" class="formLogin">
+            <h1>Cadastro de Usuário</h1>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Crie uma senha</label>
+                    <input type="password" id="password" name="senha" placeholder="Digite sua senha" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="passwordconfirm">Confirme sua senha</label>
+                    <input type="password" id="passwordconfirm" placeholder="Digite sua senha novamente" required>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <input type="text" style="visibility: hidden;">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div>
+                    <p class="form1">Já possui Login?<a id="entrar" href="../Tela de Login/telaLogin.html"> Entrar</a></p>
+                    <p class="form2">É um cadastro empresarial? <a id="cadastro" href="../Tela Cadastro Empresa/telaCadastroEmpresa.html"> Cadastrar minha empresa</a></p>
+                </div>
+            </div>
+            <input type="button" value="Cadastrar" class="btn" id="accessBtn">
+        </form>
+    </div>
+    <script src="cadastro.js" defer></script>
+</body>
+
+</html>
