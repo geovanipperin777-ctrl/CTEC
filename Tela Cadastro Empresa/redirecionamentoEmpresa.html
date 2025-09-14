@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo - CTEC</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            min-height: 100vh;
+        }
+
+        .envoltorio-principal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cabecalho {
+            display: flex;
+            border: solid 4px #333;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 0;
+            background-color: white;
+            width: 80%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cabecalho img {
+            height: 100px;
+            margin-left: 10%;
+        }
+        
+        .cabecalho h1 {
+            font-size: 36px;
+            margin-left: 5%;
+            white-space: nowrap;
+        }
+
+        .conteiner {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 720px;
+            margin: 0 auto 30px;
+            min-height: 400px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .conteiner-botoes {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .cartao-botao {
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .botao {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .botao-criar-vaga {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .botao-acessar-usuarios {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .icone-imagem {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Estilo para o nome da empresa */
+        .nome-empresa {
+            margin-left: auto;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            background: #f8f8f8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Estilo para o container do botão voltar */
+        .voltar-container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 10px auto;
+            padding-left: 20px;
+        }
+
+        /* Estilo para o botão voltar */
+        .voltar {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            color: #555;
+            transition: all 0.3s;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .voltar:hover {
+            color: #f72585;
+            background-color: #f0f0f0;
+            transform: translateX(-3px);
+        }
+
+        .voltar svg {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .cabecalho {
+                flex-direction: column;
+                text-align: center;
+                width: 90%;
+            }
+            .cabecalho h1 {
+                font-size: 28px;
+                margin-left: 0;
+                white-space: normal;
+            }
+            .cabecalho img {
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+            
+            .conteiner {
+                width: 90%;
+                padding: 30px;
+            }
+            
+            .icone-imagem {
+                width: 120px;
+                height: 120px;
+            }
+
+            .conteiner-botoes {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cartao-botao {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .nome-empresa {
+                margin: 10px auto;
+                display: block;
+                width: fit-content;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png" /> 
+</head>
+<body>
+    <div class="envoltorio-principal">
+        <div class="cabecalho">
+            <img src="../img/logobranco.png" alt="Logo CTEC" />
+            <h1>CTEC - Painel Empresarial</h1>
+            <div class="nome-empresa" id="nomeEmpresa">Sua Empresa</div>
+        </div>
+
+        <div class="voltar-container">
+            <div class="voltar" onclick="voltar()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Voltar
+            </div>
+        </div>
+
+        <div class="conteiner">
+            <h1>Bem-vindo ao seu Painel</h1>
+
+            <div class="conteiner-botoes">
+                <!-- Card 1: Criar Vagas -->
+                <div class="cartao-botao">
+                    <img src="../img/curriculoficticio.jfif" alt="Criar Vaga" class="icone-imagem" />
+                    <button class="botao botao-criar-vaga" onclick="abrirTelaCriarVaga()">
+                        Acessar a criação de vagas
+                    </button>
+                </div>
+
+                <!-- Card 2: Ver Currículos Recebidos -->
+                <div class="cartao-botao">
+                    <img src="../img/curriculopainel.png" alt="Ver Currículos" class="icone-imagem" />
+                    <button class="botao botao-acessar-usuarios" onclick="abrirTelaCurriculos()">
+                        Ver currículos recebidos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para exibir o nome da empresa
+        function exibirNomeEmpresa() {
+            // 1. Tenta pegar do localStorage
+            const nomeSalvo = localStorage.getItem('empresa_nome');
+            if (nomeSalvo) {
+                document.getElementById('nomeEmpresa').textContent = nomeSalvo;
+                return;
+            }
+            
+            // 2. Se não tiver no localStorage, tenta pegar da sessão via API
+            fetch('getEmpresaNome.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.nome) {
+                        const nomeEmpresa = data.nome;
+                        document.getElementById('nomeEmpresa').textContent = nomeEmpresa;
+                        localStorage.setItem('empresa_nome', nomeEmpresa);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar nome da empresa:', error);
+                });
+        }
+
+        // Função para voltar à página anterior usando histórico do navegador
+        function voltar() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // Caso não tenha histórico, redireciona para a tela de login como fallback
+                window.location.href = '../Tela de Login/telaLogin.html';
+            }
+        }
+
+        // Funções para navegação
+        function abrirTelaCriarVaga() {
+            window.location.href = "../Crud Vagas/novo_modelo.php";
+        }
+
+        function abrirTelaCurriculos() {
+            window.location.href = "visualizar_curriculos.php";
+        }
+
+        // Quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            exibirNomeEmpresa();
+            
+            // Guarda a origem se não tiver guardado ainda
+            if (!localStorage.getItem('origem')) {
+                const referrer = document.referrer.toLowerCase();
+                if (referrer.includes('telalogin')) {
+                    localStorage.setItem('origem', '../Tela de Login/telaLogin.html');
+                } else if (referrer.includes('telacadastroempresa')) {
+                    localStorage.setItem('origem', '../Tela Cadastro Empresa/telaCadastroEmpresa.html');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
