@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CTEC - Currículo Técnico Educacional</title>
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png"> 
+    <link rel="stylesheet" href="telainicial.css">
+</head>
+<body>
+
+
+        <!--Formatação do cabeçalho / div do topo -->
+
+    <div class="top-header"> 
+    <div class="header-content horizontal">
+        <div class="logo-container">
+            <img class="logo" src="../img/logobranco.png" alt="CTEC Logo">
+            <h1 class="logo-text">CTEC</h1>
+        </div>
+        <p class="slogan">Currículo Técnico Educacional</p>
+        <div id="userNav">
+            <a href="../Tela de Login/telaLogin.html" class="btn-entrar" id="loginLink">Entrar</a>
+            <div id="loggedInMenu" style="display: none;">
+                <span id="usuarioNome" style="margin-right: 15px;"></span>
+                <div class="dropdown-menu">
+    <button class="menu-btn">☰</button>
+    <div class="menu-content">
+        <a href="#" id="toggleTheme">Tema Escuro</a>
+        <a href="#" onclick="logout()" class="logout-btn">Sair</a>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <!-- Carrosséis -->
+    <header class="masthead">
+        <div class="carrossel-duplo-container">
+            <!-- Primeiro Carrossel -->
+            <div class="carrossel-container">
+                <div class="carrossel-slides">
+                    <div class="carrossel-item">
+                        <a href="../Tela Curriculos/formulario.html">
+                            <img src="../img/bannercurriculo1.png" alt="Crie seu currículo técnico">
+                        </a>
+                    </div>
+                    <div class="carrossel-item">
+                        <a href="../Tela Curriculos/formulario.html">
+                            <img src="../img/bannercurriculo2.png" alt="Modelos de currículo">
+                        </a>
+                    </div>
+                    <div class="carrossel-item">
+                        <a href="../Tela Curriculos/formulario.html">
+                            <img src="../img/bannercurriculo3.png" alt="Modelos de currículo">
+                        </a>
+                    </div>
+                </div>
+                <span class="carrossel-btn prev">&#10094;</span>
+                <span class="carrossel-btn next">&#10095;</span>
+                <div class="carrossel-indicadores">
+                    <span class="indicador ativo"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                </div>
+            </div>
+
+            <!-- Segundo Carrossel -->
+            <div class="carrossel-container">
+                <div class="carrossel-slides">
+                    <div class="carrossel-item">
+                        <a href="../Tela Vagas/telavagas.html">
+                            <img src="../img/bannervaga1.png" alt="Conectando talentos técnicos">
+                        </a>
+                    </div>
+                    <div class="carrossel-item">
+                        <a href="../Tela Vagas/telavagas.html">
+                            <img src="../img/bannervaga2.png" alt="Conectando talentos técnicos">
+                        </a>
+                    </div>
+                    <div class="carrossel-item">
+                        <a href="../Tela Vagas/telavagas.html">
+                            <img src="../img/bannervaga3.png" alt="Vagas disponíveis">
+                        </a>
+                    </div>
+                </div>
+                <span class="carrossel-btn prev">&#10094;</span>
+                <span class="carrossel-btn next">&#10095;</span>
+                <div class="carrossel-indicadores">
+                    <span class="indicador ativo"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Serviços -->
+    <section class="services">
+        <div class="flex-container">
+            <div class="flex-row">
+                <div class="card">
+                    <a href="../Tela Curriculos/formulario.html">
+                        <img class="service-icon" src="../img/candidato.png" alt="Criar currículo">
+                    </a>
+                    <h3>Criar currículo</h3>
+                    <p>Veja os modelos prontos que temos que o ajudará a criar o seu currículo</p>
+                </div>
+
+                <div class="card">
+                    <a href="../Tela Vagas/telavagas.html">
+                        <img class="service-icon" src="../img/vaga.png" alt="Vagas disponíveis">
+                    </a>
+                    <h3>Vagas disponíveis</h3>
+                    <p>Veja as empresas que estão contratando neste exato momento</p>
+                </div>
+
+                <div class="card">
+                        <img class="service-icon" id="cps" src="../img/cps_logo (2).jpg" alt="Institucional">
+                    </a>
+                    <h3>Institucional</h3>
+                    <p>Conheça mais sobre o Centro Paula Souza e nossas Etecs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="telainicial.js"></script>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("getUserName.php")
+        .then(res => res.json())
+        .then(data => {
+            if (data.nome) {
+                const userNav = document.getElementById("userNav");
+                userNav.innerHTML = `
+                    <span>Olá, ${data.nome}</span>
+                    <button id="logoutBtn" class="btn-entrar">Sair</button>
+                `;
+                document.getElementById("logoutBtn").addEventListener("click", () => {
+                    fetch("../Tela Login/logout.php")
+                        .then(res => res.json())
+                        .then(() => location.reload())
+                        .catch(() => alert("Erro ao sair."));
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao buscar nome:", error);
+        });
+});
+
+
+</script>
+</html>
