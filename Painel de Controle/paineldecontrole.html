@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo - CTEC</title>
+    <link rel="stylesheet" href="paineldecontrole.css">
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png" /> 
+</head>
+<body>
+    <div class="envoltorio-principal">
+        <div class="cabecalho">
+            <img src="../img/logobranco.png" alt="Logo CTEC" />
+            <h1>CTEC - Painel Empresarial</h1>
+            <div class="nome-empresa" id="nomeEmpresa">Sua Empresa</div>
+        </div>
+
+        <div class="voltar-container">
+            <div class="voltar" onclick="window.location.href='../Tela Login/telaLogin.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Voltar
+            </div>
+        </div>
+
+        <div class="conteiner">
+            <h1>Bem-vindo ao seu Painel</h1>
+
+            <div class="conteiner-botoes">
+                <!-- Card 1: Criar Vagas -->
+                <div class="cartao-botao">
+                    <img src="../img/vagasdeemprego.jfif" alt="Criar Vaga" class="icone-imagem" />
+                    <button class="botao botao-criar-vaga" onclick="abrirTelaCriarVaga()">
+                        Acessar a criação de vagas
+                    </button>
+                </div>
+
+                <!-- Card 2: Vagas Criadas -->
+                <div class="cartao-botao">
+                    <img src="../img/procuradevagas.jpg" alt="Vagas Criadas" class="icone-imagem" />
+                    <button class="botao botao-vagas-criadas" onclick="abrirTelaVagasCriadas()">
+                        Vagas Criadas
+                    </button>
+                </div>
+
+                <!-- Card 3: Ver Currículos Recebidos -->
+                <div class="cartao-botao">
+                    <img src="../img/curriculopainel.png" alt="Ver Currículos" class="icone-imagem" />
+                    <button class="botao botao-acessar-usuarios" onclick="abrirTelaCurriculos()">
+                        Ver currículos recebidos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="paineldecontrole.js"></script>
+</body>
+</html>

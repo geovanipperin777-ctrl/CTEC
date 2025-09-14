@@ -1,0 +1,219 @@
+/* 🔹 1. Estilos Globais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+}
+
+/* 🔹 2. Estrutura principal da página */
+.envoltorio-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 3. Cabeçalho do Painel */
+.cabecalho {
+    display: flex;
+    border: solid 4px #333;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 0;
+    background-color: white;
+    width: 80%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cabecalho img {
+    height: 100px;
+    margin-left: 10%;
+}
+
+.cabecalho h1 {
+    font-size: 36px;
+    margin-left: 5%;
+    white-space: nowrap;
+}
+
+/* Nome da empresa à direita */
+.nome-empresa {
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: #f8f8f8;
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 🔹 4. Botão "Voltar" */
+.voltar-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 10px auto;
+    padding-left: 20px;
+}
+
+.voltar {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+    transition: all 0.3s;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.voltar:hover {
+    color: #f72585;
+    background-color: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+.voltar svg {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+/* 🔹 5. Painel de boas-vindas (caixa branca central) */
+.conteiner {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 720px;
+    margin: 0 auto 30px;
+    min-height: 400px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* 🔹 6. Área com os botões de ação (cards) */
+.conteiner-botoes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.cartao-botao {
+    width: 240px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.cartao-botao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.icone-imagem {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* 🔹 7. Botões dos cartões */
+.botao {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+.botao-criar-vaga {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.botao-acessar-usuarios {
+    background-color: #2196F3;
+    color: white;
+}
+
+.botao-vagas-criadas {
+    background-color: #FF9800;
+    color: white;
+}
+
+/* 🔹 8. Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+        width: 90%;
+    }
+
+    .cabecalho h1 {
+        font-size: 28px;
+        margin-left: 0;
+        white-space: normal;
+    }
+
+    .cabecalho img {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .conteiner {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .icone-imagem {
+        width: 120px;
+        height: 120px;
+    }
+
+    .conteiner-botoes {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .cartao-botao {
+        width: 240px;
+    }
+
+    .nome-empresa {
+        margin: 10px auto;
+        display: block;
+        width: fit-content;
+    }
+}
+
+/* 🔹 Responsividade adicional: empilhamento dos cartões */
+@media (max-width: 768px) {
+    .conteiner-botoes {
+        flex-direction: column;
+    }
+
+    .cartao-botao {
+        width: 100%;
+        max-width: 350px;
+    }
+}
