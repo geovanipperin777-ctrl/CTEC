@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login - CTEC</title>
+    <link rel="stylesheet" href="telalogin.css">
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png"> 
+</head>
+<body>
+    <div class="header">
+        <img src="../img/logobranco.png">
+        <h1>CTEC - Currículo Técnico Educacional</h1>
+    </div>
+
+    <div class="login-container">
+        <form id="loginForm" class="formLogin" onsubmit="return false;">
+            <h1>Login</h1>
+            <label for="nome">Nome de Usuário</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário" autofocus required>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <div class="links-cadastro">
+                <p>Ainda não possui Login?</p>
+                <a href="../Tela Cadastro/telaCadastro.html">Cadastro usual</a>
+                <a href="../Tela Cadastro Empresa/telaCadastroEmpresa.html">Cadastro empresarial</a>
+            </div>
+            <button type="submit" class="btn">Acessar</button>
+            <div id="errorMessage" class="login-error"></div>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
