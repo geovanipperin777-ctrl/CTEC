@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTEC - Seleção de Modelo</title>
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png" /> 
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px 60px;
+        }
+        
+        .logo {
+            width: 80px;
+        }
+        
+        .title {
+            margin-left: 300px; 
+            font-size: 35px;
+            color: #1368e7;
+        }
+        
+        .main-container {
+            background-color: #87CEEB; 
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .modelo-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px auto;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
+        
+        .modelo-option {
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 300px;
+        }
+        
+        .modelo-option:hover {
+            transform: translateY(-5px);
+        }
+        
+        .modelo-option img {
+            width: 100%;
+            border: 3px solid transparent;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .modelo-option.selected img {
+            border-color: #FFA07A;
+            box-shadow: 0 0 15px rgba(255, 160, 122, 0.6);
+        }
+        
+        .modelo-name {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .btn {
+            background-color: #FFA07A;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff8c5a;
+            transform: scale(1.05);
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="../img/logobranco.png" class="logo">
+        <h1 class="title">CTEC - Currículo Técnico Educacional</h1>
+    </div>
+
+    <div class="main-container">
+        <h1>Escolha um modelo de Currículo</h1>
+        
+        <div class="modelo-container">
+            <div class="modelo-option" data-modelo="moderno">
+                <img src="../img/Mariana Fernandes.png" alt="Modelo Moderno">
+                <div class="modelo-name">Modelo Moderno</div>
+            </div>
+            
+            <div class="modelo-option" data-modelo="classico">
+                <img src="../img/Claudio Pires.png" alt="Modelo Clássico">
+                <div class="modelo-name">Modelo Clássico</div>
+            </div>
+            
+            <div class="modelo-option" data-modelo="criativo">
+                <img src="../img/Rafaela Silva.png" alt="Modelo Criativo">
+                <div class="modelo-name">Modelo Criativo</div>
+            </div>
+        </div>
+        
+        <button id="btnAvançar" class="btn" disabled>Avançar</button>
+    </div>
+
+    <script>
+        // Seleção de modelos
+        const options = document.querySelectorAll('.modelo-option');
+        let selectedModel = null;
+        
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove seleção anterior
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Adiciona seleção atual
+                this.classList.add('selected');
+                selectedModel = this.getAttribute('data-modelo');
+                
+                // Ativa o botão
+                document.getElementById('btnAvançar').disabled = false;
+            });
+        });
+        
+        // Redirecionamento para a página de formulário
+        document.getElementById('btnAvançar').addEventListener('click', function() {
+            if (selectedModel) {
+                window.location.href = `formulario.html?modelo=${selectedModel}`;
+            }
+        });
+    </script>
+
+</body>
+</html> 

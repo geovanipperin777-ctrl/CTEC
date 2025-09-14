@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTEC - Formulário</title>
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="../img/logobranco.png" class="logo">
+        <h1 class="title">CTEC - Preencha seus dados</h1>
+    </div>
+
+    <div class="top-nav">
+        <button type="button" class="btn-voltar" id="btnVoltarTopo">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    </div>
+    
+    <div class="main-container">
+        </div>
+
+        <!-- Formulário -->
+        <form id="curriculoForm">
+            <!-- Seção 1: Informações Pessoais -->
+            <div class="form-section">
+                <h2 class="section-title">Informações Pessoais</h2>
+                
+                <!-- Upload de Foto -->
+                <div class="form-group">
+                    <label>Foto de Perfil (opcional)</label>
+                    <div class="foto-upload-container">
+                        <img id="foto-preview" class="foto-preview" alt="Pré-visualização da foto">
+                        <div>
+                            <button type="button" class="btn btn-secondary foto-upload-btn">
+                                <i class="fas fa-camera"></i> Escolher Foto
+                                <input type="file" id="foto-input" accept="image/*">
+                            </button>
+                            <small>Formatos aceitos: JPG, PNG (máx. 2MB)</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo*</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+    <div class="form-group">
+        <label class="idade" for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" name="dataNascimento">
+        <input type="hidden" id="idade" name="idade">
+        <small id="idadeCalculada" style="display: block; margin-top: 5px;"></small>
+    </div>
+</div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="telefone" for="telefone">Telefone*</label>
+                            <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="email" for="email">E-mail*</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label class="cargo" for="profissao">Profissão/Cargo</label>
+                            <input type="text" id="profissao" name="profissao" placeholder="Ex: Estudante, Desenvolvedor">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn (opcional)</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/seu-perfil">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Novo campo Objetivo -->
+                <div class="form-group">
+                    <label for="objetivo">Objetivo Profissional</label>
+                    <textarea id="objetivo" name="objetivo" placeholder="Descreva brevemente seus objetivos profissionais (opcional)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sobre">Sobre você</label>
+                    <textarea id="sobre" name="sobre" placeholder="Fale brevemente sobre você (opcional)"></textarea>
+                </div>
+            </div>
+            
+            <!-- Seção 2: Experiência Profissional -->
+            <div class="form-section" id="experiencias-section">
+                <div class="section-actions">
+                    <button type="button" class="remove-btn" id="btn-remove-experiencias">
+                        <i class="fas fa-trash-alt"></i> Remover seção
+                    </button>
+                    <div class="confirm-remove" id="confirm-remove-experiencias">
+                        <p>Tem certeza que deseja remover esta seção?</p>
+                        <div class="confirm-remove-btns">
+                            <button type="button" class="btn-secondary" id="cancel-remove-experiencias">Cancelar</button>
+                            <button type="button" class="remove-btn" id="confirm-remove-experiencias-btn">Remover</button>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="section-title">Experiência Profissional</h2>
+                
+                <div id="experiencias-container">
+                    <div class="experiencia-item">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="empresa1">Empresa</label>
+                                    <input type="text" id="empresa1" name="experiencia[0][empresa]">
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="cargo1">Cargo</label>
+                                    <input type="text" id="cargo1" name="experiencia[0][cargo]">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="inicio1">Ano de Início</label>
+                                    <input type="number" id="inicio1" name="experiencia[0][inicio]" min="1900" max="2100" class="year-input">
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="fim1">Ano de Término</label>
+                                    <input type="number" id="fim1" name="experiencia[0][fim]" min="1900" max="2100" class="year-input">
+                                    <small>Deixe em branco se for o emprego atual</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="descricao1">Descrição das Atividades</label>
+                            <textarea id="descricao1" name="experiencia[0][descricao]"></textarea>
+                        </div>
+                        
+                        <button type="button" class="remove-btn" onclick="this.parentNode.remove()">
+                            <i class="fas fa-trash-alt"></i> Remover experiência
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="button" class="add-btn" id="add-experiencia">
+                    <i class="fas fa-plus"></i> Adicionar experiência
+                </button>
+            </div>
+            
+            <!-- Seção 3: Formação Acadêmica -->
+            <div class="form-section" id="formacoes-section">
+                <div class="section-actions">
+                    <button type="button" class="remove-btn" id="btn-remove-formacoes">
+                        <i class="fas fa-trash-alt"></i> Remover seção
+                    </button>
+                    <div class="confirm-remove" id="confirm-remove-formacoes">
+                        <p>Tem certeza que deseja remover esta seção?</p>
+                        <div class="confirm-remove-btns">
+                            <button type="button" class="btn-secondary" id="cancel-remove-formacoes">Cancelar</button>
+                            <button type="button" class="remove-btn" id="confirm-remove-formacoes-btn">Remover</button>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="section-title">Formação Acadêmica</h2>
+                
+                <div id="formacoes-container">
+                    <div class="formacao-item">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="instituicao1">Instituição de Ensino</label>
+                                    <input type="text" id="instituicao1" name="formacao[0][instituicao]">
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="curso1">Curso</label>
+                                    <input type="text" id="curso1" name="formacao[0][curso]">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="nivel1">Nível</label>
+                                    <select id="nivel1" name="formacao[0][nivel]">
+                                        <option value="">Selecione</option>
+                                        <option value="Ensino Médio">Ensino Médio</option>
+                                        <option value="Técnico">Técnico</option>
+                                        <option value="Graduação">Graduação</option>
+                                        <option value="Pós-graduação">Pós-graduação</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="conclusao1">Ano de Conclusão</label>
+                                    <input type="number" id="conclusao1" name="formacao[0][conclusao]" min="1900" max="2100" class="year-input">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="remove-btn" onclick="this.parentNode.remove()">
+                            <i class="fas fa-trash-alt"></i> Remover formação
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="button" class="add-btn" id="add-formacao">
+                    <i class="fas fa-plus"></i> Adicionar formação
+                </button>
+            </div>
+            
+            <!-- Seção 4: Habilidades -->
+            <div class="form-section" id="habilidades-section">
+                <div class="section-actions">
+                    <button type="button" class="remove-btn" id="btn-remove-habilidades">
+                        <i class="fas fa-trash-alt"></i> Remover seção
+                    </button>
+                    <div class="confirm-remove" id="confirm-remove-habilidades">
+                        <p>Tem certeza que deseja remover esta seção?</p>
+                        <div class="confirm-remove-btns">
+                            <button type="button" class="btn-secondary" id="cancel-remove-habilidades">Cancelar</button>
+                            <button type="button" class="remove-btn" id="confirm-remove-habilidades-btn">Remover</button>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="section-title">Habilidades</h2>
+                
+                <div class="form-group">
+                    <label>Habilidades Técnicas</label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                        <input type="text" id="habilidade-input" placeholder="-Organização -Trabalho em equipe -Comunicação -Criatividade" style="flex-grow: 1;">
+                    </div>
+                    <div id="habilidades-selecionadas" style="margin-top: 15px;"></div>
+                    <input type="hidden" id="habilidades" name="habilidades">
+                </div>
+                
+                <div class="form-group">
+                    <label>Idiomas</label>
+                    <div id="idiomas-container">
+                        <div class="idioma-item">
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <input id="idioma" type="text" name="idioma[0][nome]" placeholder="Idioma">
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <select name="idioma[0][nivel]">
+                                            <option value="">Nível</option>
+                                            <option value="Básico">Básico</option>
+                                            <option value="Intermediário">Intermediário</option>
+                                            <option value="Avançado">Avançado</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="remove-btn" onclick="this.parentNode.remove()">
+                                <i class="fas fa-trash-alt"></i> Remover idioma
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-btn" id="add-idioma">
+                        <i class="fas fa-plus"></i> Adicionar idioma
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Botões de ação -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="btnVoltar">Voltar</button>
+                <button type="submit" class="btn" id="btnContinuar">Visualizar Currículo</button>
+            </div>
+        </form>
+    </div>
+    <script src="formulario.js" defer></script>
+</body>
+</html>

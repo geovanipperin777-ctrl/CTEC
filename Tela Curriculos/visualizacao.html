@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CTEC - Visualização do Currículo</title>
+    <link rel="icon" type="image/x-icon" href="../img/logobranco.png" />
+    <link rel="stylesheet" href="visualizacao.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+ 
+</head>
+<body>
+
+
+<div class="header">
+    <img src="../img/logobranco.png" class="logo" />
+    <h1 class="title">CTEC - Visualização do Currículo</h1>
+    <div class="modelo-indicator" id="modeloIndicator">Modelo Moderno</div>
+</div>
+
+<!-- Paletas de cores -->
+<div class="color-palette">
+    <h3>Paletas de Cores</h3>
+    <div class="color-option selected" style="background: #1368e7;" data-primary="#1368e7" data-secondary="#FFA07A" data-name="moderno"></div>
+    <div class="color-option" style="background: #2e7d32;" data-primary="#2e7d32" data-secondary="#5cb85c" data-name="natureza"></div>
+    <div class="color-option" style="background: #d32f2f;" data-primary="#d32f2f" data-secondary="#f44336" data-name="energico"></div>
+    <div class="color-option" style="background: #7b1fa2;" data-primary="#7b1fa2" data-secondary="#9c27b0" data-name="criativo"></div>
+    <div class="color-option" style="background: #0277bd;" data-primary="#0277bd" data-secondary="#0288d1" data-name="profissional"></div>
+    <div class="color-option" style="background: #5d4037;" data-primary="#5d4037" data-secondary="#795548" data-name="classico"></div>
+</div>
+
+<div class="main-container">
+    <div class="curriculo-container">
+        <div class="curriculo-paper" id="curriculoPaper">
+            <!-- Conteúdo dinâmico aqui -->
+        </div>
+    </div>
+
+    <div class="acoes-container">
+        <button class="btn btn-impressao" onclick="imprimirCurriculo()"><i class="fas fa-print"></i> Imprimir</button>
+        <button class="btn btn-editar" id="btnEditar"><i class="fas fa-edit"></i> Editar</button>
+        <button class="btn btn-download" id="btnDownload"><i class="fas fa-download"></i> Download PDF</button>
+    </div>
+</div>
+    <script src="visualizacao.js"></script>
+
+</body>
+</html>
